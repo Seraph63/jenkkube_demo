@@ -1,7 +1,6 @@
 pipeline {
   agent any
   stages {
-
     stage('Build') {
       steps {
         echo 'Building container image...'
@@ -25,6 +24,7 @@ pipeline {
             sh 'chmod -R a+w $WORKSPACE/report'
           }
         }
+
         echo 'Publishing test report data...'
         junit 'report/*.xml'
       }
